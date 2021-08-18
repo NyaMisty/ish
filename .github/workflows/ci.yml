@@ -36,6 +36,11 @@ jobs:
       - name: Test
         if: matrix.kernel == 'ish'
         run: ninja -C build test
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: ish-linux
+          path: ish
 
   build-mac:
     runs-on: macos-10.15
